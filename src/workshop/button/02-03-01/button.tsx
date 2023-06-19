@@ -19,12 +19,16 @@ const baseClasses =
 /*
   ------------------------------
   1. Populate the `impactClasses` lookup object below.
-  This object should have a key for each possible 
-  `impact` value, and the key should 
+  This object should have a key for each possible
+  `impact` value, and the key should
   mirror the prop value.
   ------------------------------
 */
-const impactClasses: Record<ButtonProps['impact'], string> = {}
+const impactClasses: Record<ButtonProps['impact'], string> = {
+  bold: "bg-indigo-500 text-white  shadow-md hover:bg-indigo-600 disabled:shadow-none",
+  light: "bg-indigo-100 text-indigo-700 hover:bg-indigo-200 ",
+  none: "bg-transparent text-indigo-700 hover:bg-indigo-50",
+}
 
 // ------------------------------
 // Component definition (with default variants)
@@ -38,15 +42,15 @@ const Button = ({
   return (
     <button
       {...restProps}
-      /* 
+      /*
         ------------------------------
-        2. Add the appropriate `impactClasses` values to the 
+        2. Add the appropriate `impactClasses` values to the
         className attribute below.
         The `cx()` function imported at the top will merge
         a series of comma separated inputs!
         ------------------------------
       */
-      className={baseClasses}
+      className={cx(baseClasses, impactClasses[impact])}
     />
   )
 }
