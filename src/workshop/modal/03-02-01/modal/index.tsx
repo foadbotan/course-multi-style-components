@@ -8,19 +8,19 @@ export default function ModalDemo() {
 
   return (
     <main>
-      {/* 
+      {/*
       ------------------------------
       We use the `isOpen` piece of state to show/hide the modal.
       The `setIsOpen` function is passed to the modal as an
       `onClose` prop.
       ------------------------------
     */}
-      {isOpen && <Modal open={isOpen} onClose={() => setIsOpen(false)} />}
+      <Modal open={isOpen} onClose={() => setIsOpen(false)} />
 
-      {/* 
+      {/*
       ------------------------------
       Below this point, we have a `Button` component that toggles
-      the modal window, as well as some page copy to demo how 
+      the modal window, as well as some page copy to demo how
       the modal affects (or not) the page scrolling.
       ------------------------------
     */}
